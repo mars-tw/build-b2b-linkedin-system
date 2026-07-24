@@ -1,6 +1,5 @@
 # Build B2B LinkedIn System
 
-[![Validate](https://github.com/mars-tw/build-b2b-linkedin-system/actions/workflows/validate.yml/badge.svg)](https://github.com/mars-tw/build-b2b-linkedin-system/actions/workflows/validate.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 An evidence-first Codex skill for building a complete B2B LinkedIn system: company positioning, employee profiles, technical content, ideal customer profiles, prospect research, relationship-first outreach, CTA and CRM handoff, and a 30-day rollout.
@@ -85,8 +84,7 @@ Use $build-b2b-linkedin-system to connect our content plan to an RFQ and CRM han
 │       ├── quality-rubric.md
 │       └── templates.md
 ├── evals/cases.json
-├── tools/validate_skill.py
-└── .github/workflows/validate.yml
+└── tools/validate_skill.py
 ```
 
 The original presentation and its transcript are not redistributed. The repository contains only the generalized workflow, examples, templates, and quality controls required by the skill.
@@ -99,7 +97,7 @@ Requires Python 3.10 or newer and no third-party packages.
 python tools/validate_skill.py
 ```
 
-The same check runs in GitHub Actions on pushes and pull requests.
+Run this check before opening a pull request.
 
 ## Contributing
 
