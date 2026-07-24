@@ -1,6 +1,6 @@
 ---
 name: build-b2b-linkedin-system
-description: Build and audit evidence-based B2B LinkedIn systems covering company-page positioning, employee profiles, content pillars, AI-assisted drafting with human review, ICP definition, prospect research, relationship-first outreach, CTA and CRM handoff, and 30-day rollout. Use when asked to improve a technical or manufacturing company's LinkedIn presence, create About or headline copy, plan thought leadership, define an ICP, draft safe outreach, diagnose funnel gaps, or connect LinkedIn activity to qualified business development.
+description: Build and audit evidence-based B2B LinkedIn systems covering positioning, content, ICP, network-composition audits, same-industry or same-skill relationship matrices, safe buyer/peer/partner discovery, approval-gated outreach, CTA and CRM handoff. Use when asked to improve a technical or manufacturing company's LinkedIn presence, find people with similar industries or capabilities, map buyer and expert networks, diagnose audience composition, plan safe network growth, draft outreach, or connect LinkedIn activity to qualified business development.
 ---
 
 # Build a B2B LinkedIn System
@@ -13,16 +13,19 @@ Read:
 
 - [references/playbook.md](references/playbook.md) for domain frameworks and optical-industry examples
 - [references/templates.md](references/templates.md) when producing a deliverable
+- [references/relationship-growth-matrix.md](references/relationship-growth-matrix.md) when mapping same-industry, same-role, or same-skill relationships
+- [references/platform-signals.md](references/platform-signals.md) when discussing LinkedIn ranking, current limits, or expert claims
 - [references/quality-rubric.md](references/quality-rubric.md) before final delivery
 
 ## Select the Mode
 
 Choose the narrowest mode that completes the request:
 
+- `research`: gather and classify only authorized business-relevant evidence; do not connect, follow, react, comment, message, or write CRM data
 - `audit`: diagnose the current system and evidence gaps
 - `design`: define positioning, profiles, content, ICP, CTA, and handoff
 - `draft`: produce review-ready copy or messaging with visible evidence labels
-- `operate`: execute only the explicitly authorized external actions
+- `operate`: execute only an exact, approved action manifest after a fresh stop-check
 
 Combine modes when the user requests an end-to-end engagement. For a single post, use this skill for positioning and evidence, then follow any available company-specific publishing skill.
 
@@ -30,12 +33,14 @@ Combine modes when the user requests an end-to-end engagement. For a single post
 
 Resolve conflicts in this order:
 
-1. User instructions, company policies, and approved claims
-2. Current verified source material
-3. This skill's workflow and guardrails
-4. Examples in the playbook
+1. Law, privacy, platform rules, opt-outs, and this skill's non-overridable anti-spam guardrails
+2. Explicit user scope, company policies, live holds, and scoped human approvals
+3. Current verified source material
+4. This skill's workflow
+5. Examples in the playbook
 
 Never let an example override company evidence. Never transfer an optical-industry example into another sector as a fact.
+Authorization selects among safe actions; it never waives privacy, anti-spam, opt-out, quota, or platform-integrity constraints.
 
 ## Maintain an Evidence Ledger
 
@@ -58,6 +63,13 @@ Track at least `claim`, `status`, `source`, `owner`, and `allowed use`. Distingu
 - Use only business-relevant prospect information and honor opt-outs or explicit disinterest.
 - Obtain explicit authorization before publishing, messaging people, changing live profiles, or writing to a CRM.
 - Verify current LinkedIn navigation, limits, and product behavior when exact platform instructions are requested.
+- Treat discovery, qualification, queueing, approval, execution, and observation as separate states. A high-priority row is never permission to contact.
+- Do not use session cookies, undocumented or private APIs, CAPTCHA avoidance, quota evasion, engagement pods, or coordinated artificial engagement.
+- Record only business-relevant public evidence. Do not infer protected traits, private contact data, intent, or competence from names, photos, demographics, or weak title similarity.
+- Treat a capability as verified only when explicitly stated or evidenced by current work, authored content, projects, or traceable professional material; otherwise record `unknown`.
+- Do not claim an exact LinkedIn ranking algorithm. Separate official platform statements, local observations, third-party analysis, and hypotheses.
+- Do not claim that named experts joined or debated unless actual participation and outputs are recorded. Label published-source synthesis and AI reviewer roles accurately.
+- Deduplicate by canonical profile identifier or URL and honor prior contact, opt-out, blocked, do-not-contact, and explicit disinterest states.
 - Respond in the user's language unless another output language is requested. Preserve accepted technical terms where translation would reduce precision.
 
 ## Intake
@@ -155,7 +167,38 @@ Define industry, region, company size, role, buyer need, and decision authority.
 
 Separate target-account criteria from contact-role criteria. Use mutual connections, relevant groups, and verified prior interactions to reduce cold-start friction. Record only meaningful, business-relevant interaction context.
 
-### 7. Draft Relationship-First Outreach
+### 7. Build the Relationship Growth Matrix
+
+Use [references/relationship-growth-matrix.md](references/relationship-growth-matrix.md). Generate candidates from network, exact, semantic, and evidence lanes, then classify each person as `buyer`, `peer_expert`, `partner_ecosystem`, `supplier`, `competitor`, `internal`, `unknown`, or `exclude`.
+
+Never combine all people into one opaque growth score. Treat same-industry and same-skill matches as relevance signals, not buying intent or contact permission. Verify each capability from traceable professional evidence or mark it `unknown`.
+
+Use:
+
+`discovered -> verified -> classified -> queued -> approved -> executed -> observed`
+
+Never skip `approved`. Bind approval to the exact sender, target identifiers, action type, payload, count, time window, cap, and stop conditions. Any change returns the item to `queued`.
+Move an item to `blocked` on a stop condition, `expired` when its approval window ends, and `cancelled` on human withdrawal, opt-out, or explicit disinterest. Returning a terminal item to `queued` requires fresh verification and a new exact approval.
+
+When weighted prioritization is useful, run:
+
+```text
+python scripts/score_relationship_candidates.py INPUT.csv OUTPUT.csv
+```
+
+The scorer is a local, explainable heuristic. It never accesses LinkedIn or authorizes an external action.
+
+### 8. Synthesize Platform Evidence and Expert Debate
+
+Use [references/platform-signals.md](references/platform-signals.md). Keep official platform facts, local observations, named practitioner analysis, and hypotheses in separate evidence tiers.
+
+When many-expert or deep-debate work is requested, assign independent lenses for recommendation systems, search relevance, skills taxonomy, technical B2B growth, community trust, sales operations, privacy and anti-abuse, measurement, industry expertise, and red-team review.
+
+Require each contributor to state the claim, source tier, exact source, date, scope, assumptions, strongest counterargument, risk if wrong, and a reversible test. Keep builders and auditors separate. Resolve disagreement by evidence quality, product scope, recency, and risk rather than majority vote.
+
+Label actual human participation, published expert-source synthesis, and AI reviewer roles distinctly. Never imply a named person participated when only public work was analyzed.
+
+### 9. Draft Relationship-First Outreach
 
 Apply four rules:
 
@@ -166,7 +209,7 @@ Apply four rules:
 
 Sequence outreach as `relevant interaction -> connection -> useful exchange -> permission-based follow-up -> owned handoff`. Keep placeholders explicit and never pretend to have observed activity that was not verified.
 
-### 8. Map CTA and CRM Handoff
+### 10. Map CTA and CRM Handoff
 
 Connect each content or profile CTA to:
 
@@ -178,7 +221,7 @@ Connect each content or profile CTA to:
 
 Flag any broken link, unowned inbox, untracked inquiry, or handoff without a follow-up rule.
 
-### 9. Roll Out and Measure
+### 11. Roll Out and Measure
 
 Build a four-week sequence:
 
@@ -202,9 +245,12 @@ Use the structures in [references/templates.md](references/templates.md). Delive
 5. Priority employee profile recommendations
 6. Content pillars and evidence-backed calendar
 7. ICP and prospect-research fields
-8. Relationship-first outreach drafts
-9. CTA and CRM handoff map
-10. Thirty-day plan with owners, approval gates, and metrics
+8. Explainable buyer, peer, and partner relationship matrix with sources, unknowns, exclusions, and permitted next steps
+9. Platform-signal and expert-claim ledger when algorithm guidance is in scope
+10. Queue-only action manifest or exact approval record when external action is in scope
+11. Relationship-first outreach drafts
+12. CTA and CRM handoff map
+13. Thirty-day plan with owners, approval gates, and metrics
 
 Label each external-facing asset as `draft`, `verified`, or `approved for publishing`. Do not label anything approved unless an authorized human has approved it.
 
@@ -218,4 +264,9 @@ Label each external-facing asset as `draft`, `verified`, or `approved for publis
 - Confirm outreach is personalized, useful, and non-pushy.
 - Confirm every public or external action has explicit authorization.
 - Confirm the 30-day plan assigns owners and closes the loop into follow-up.
+- Confirm discovery, queueing, approval, and execution were not conflated.
+- Confirm peers, suppliers, competitors, and buyers were not merged into one growth score.
+- Confirm every capability match has a source and date or is marked `unknown`.
+- Confirm algorithm statements and expert synthesis have correct provenance labels.
+- Confirm approval identifies exact targets, payload, sender, cap, window, and stop conditions.
 - Do not deliver a full system with a critical failure in evidence integrity or external-action safety.

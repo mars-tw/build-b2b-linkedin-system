@@ -1,6 +1,6 @@
 # Build B2B LinkedIn System
 
-> An evidence-first Codex skill for company positioning, employee profiles, technical content, ICP definition, prospect research, relationship-first outreach, CTA-to-CRM handoff, and a 30-day rollout.
+> An evidence-first Codex skill for company positioning, technical content, ICP definition, same-industry and same-skill relationship matrices, buyer/peer/partner discovery, approval-gated outreach, CTA-to-CRM handoff, and a 30-day rollout.
 
 ## Canonical resources
 
@@ -17,6 +17,12 @@
 - Keep AI-generated content as a draft until a qualified human reviews it.
 - Require explicit authorization before publishing, messaging, changing profiles, or writing CRM data.
 - Optimize for buyer trust and qualified conversations, not vanity metrics or activity volume.
+- Separate official platform statements, local observations, practitioner analysis, and hypotheses.
+- Never claim LinkedIn's exact private algorithm, fixed weights, guaranteed outcomes, or a fixed safe invitation quota.
+- Separate buyers, peers, partners, suppliers, competitors, internal people, unknowns, and exclusions.
+- Treat priority as a research decision, never permission to contact.
+- Never use sensitive targeting, scraping, bots, undocumented APIs, session-cookie reuse, bulk actions, fake engagement, or limit evasion.
+- Keep discovery, verification, classification, queue, exact approval, execution, and observation as separate states.
 
 ## Validation
 

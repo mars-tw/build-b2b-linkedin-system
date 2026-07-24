@@ -11,10 +11,13 @@ Use only the sections required by the selected mode. Keep placeholders visible u
 5. Employee Profile
 6. Content System
 7. ICP and Prospect Research
-8. Outreach
-9. CTA and CRM Handoff
-10. Thirty-Day Plan
-11. Measurement Review
+8. Relationship Growth Matrix
+9. Platform and Expert Claim Ledger
+10. External Action Manifest
+11. Outreach
+12. CTA and CRM Handoff
+13. Thirty-Day Plan
+14. Measurement Review
 
 ## 1. Intake Brief
 
@@ -137,30 +140,93 @@ Use `approved for publishing` only as a separate approval state after factual ve
 - Missing evidence:
 - Permitted next step:
 
-## 8. Outreach
+## 8. Relationship Growth Matrix
+
+### Portfolio Definition
+
+| Relationship lane | Intended role | Target share | Inclusion evidence | Exclusion | Owner |
+|---|---|---:|---|---|---|
+| buyer |  |  |  |  |  |
+| peer_expert |  |  |  |  |  |
+| partner_ecosystem |  |  |  |  |  |
+| supplier |  |  |  |  |  |
+| competitor |  |  |  |  |  |
+| internal |  |  |  |  |  |
+| unknown |  |  |  |  |  |
+
+### Candidate Matrix
+
+| Candidate ID | Source and date | Discovery lane | Relationship lane | Industry evidence | Role evidence | Skill evidence | Relationship context | Verification | Risk or exclusion | Priority | Permitted next step | Approval state |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|  |  | network / exact / semantic / evidence | buyer / peer_expert / partner_ecosystem / supplier / competitor / internal / unknown / exclude |  |  | exact / parent-child / sibling / unknown |  | verified / supported / unknown / excluded |  | P1 / P2 / HOLD / EXCLUDE |  | discovered / verified / classified / queued / approved / executed / observed / blocked / cancelled / expired |
+
+Priority never grants permission. Keep the supporting fields when a weighted
+score is used, and label the formula as a local heuristic.
+
+## 9. Platform and Expert Claim Ledger
+
+| Claim | Product scope | Evidence tier | Source and date | Verified date | Confidence | Counterevidence | Recheck date | Allowed use |
+|---|---|---:|---|---|---|---|---|---|
+|  | PYMK / People Search / Feed / other | 1 official / 2 local / 3 practitioner / 4 hypothesis |  |  |  |  |  | platform fact / local observation / attributed hypothesis / planning only |
+
+### Debate Record
+
+| Reviewer lens | Provenance | Claim | Evidence | Strongest counterargument | Risk if wrong | Ruling | Human decision needed |
+|---|---|---|---|---|---|---|---|
+|  | connected human / published source / AI reviewer |  |  |  |  | accept / reject / test / unresolved |  |
+
+## 10. External Action Manifest
+
+- Action ID:
+- Mode: research / operate
+- State: discovered / verified / classified / queued / approved / executed / observed / blocked / cancelled / expired
+- Exact targets and count:
+- Sender or account:
+- Exact action type:
+- Exact payload:
+- Evidence and relationship lane:
+- Deduplication and prior-contact check:
+- Opt-out and do-not-contact check:
+- Time window and hard cap:
+- Approval owner and reference:
+- Approval expiry:
+- Current live hold or project-policy overlay:
+- Stop conditions:
+- Blocking or cancellation reason:
+- Recovery path:
+- Execution evidence or `not executed`:
+- Outcome:
+
+## 11. Outreach
 
 ### Message Record
 
 - Recipient:
+- Canonical recipient ID:
+- Current state:
 - Verified personalization source:
 - Relevance:
 - Value offered:
 - Message:
 - Prohibited or unverified claims removed:
+- Prior-contact and deduplication result:
+- Opt-out and do-not-contact result:
 - Authorized channel:
 - Authorized sender:
+- Exact approval reference:
 - Follow-up condition:
 - Stop condition:
+- Execution evidence or `not executed`:
 
 Keep all unverified values in brackets, for example `[verified application]`.
 
-## 9. CTA and CRM Handoff
+## 12. CTA and CRM Handoff
 
 | Source asset | CTA | Destination | Response owner | Response expectation | Tracking stage | Next permitted action | Gap |
 |---|---|---|---|---|---|---|---|
 |  |  |  |  |  |  |  |  |
 
-## 10. Thirty-Day Plan
+## 13. Thirty-Day Plan
 
 | Week | Outcome | Actions | Evidence required | Owner | Approval gate | Completion signal |
 |---|---|---|---|---|---|---|
@@ -169,7 +235,7 @@ Keep all unverified values in brackets, for example `[verified application]`.
 | 3 | Reviewed launch assets |  |  |  |  |  |
 | 4 | Handoff and learning loop |  |  |  |  |  |
 
-## 11. Measurement Review
+## 14. Measurement Review
 
 Separate readiness from live outcomes.
 

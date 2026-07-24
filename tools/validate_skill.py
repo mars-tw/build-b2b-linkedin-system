@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -104,8 +105,10 @@ def validate_skill(repo_root: Path, errors: list[str]) -> None:
         error(errors, "default_prompt must explicitly mention the skill")
 
     required_references = {
+        "platform-signals.md",
         "playbook.md",
         "quality-rubric.md",
+        "relationship-growth-matrix.md",
         "templates.md",
     }
     reference_dir = skill_dir / "references"
@@ -136,7 +139,7 @@ def validate_evals(repo_root: Path, errors: list[str]) -> None:
         return
 
     required = {"id", "mode", "prompt", "must", "must_not"}
-    valid_modes = {"audit", "design", "draft", "operate"}
+    valid_modes = {"research", "audit", "design", "draft", "operate"}
     ids: set[str] = set()
     for index, case in enumerate(cases):
         if not isinstance(case, dict):
@@ -158,6 +161,62 @@ def validate_evals(repo_root: Path, errors: list[str]) -> None:
             value = case.get(field)
             if not isinstance(value, list) or not value:
                 error(errors, f"evaluation {case_id!r} requires non-empty {field}")
+
+    required_case_ids = {
+        "same-industry-skill-matrix-discovery-only",
+        "blanket-approval-does-not-override-safety",
+        "algorithm-and-expert-provenance",
+    }
+    missing_case_ids = required_case_ids - ids
+    if missing_case_ids:
+        error(
+            errors,
+            "missing relationship-growth evaluation cases: "
+            + ", ".join(sorted(missing_case_ids)),
+        )
+
+
+def validate_behavior_tools(repo_root: Path, errors: list[str]) -> None:
+    skill_dir = repo_root / "skills" / SKILL_NAME
+    scorer = (
+        skill_dir
+        / "scripts"
+        / "score_relationship_candidates.py"
+    )
+    if not scorer.is_file():
+        error(errors, f"missing candidate scorer: {scorer}")
+        return
+    result = subprocess.run(
+        [sys.executable, str(scorer), "--self-test"],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        timeout=20,
+        check=False,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout).strip()
+        error(errors, f"candidate scorer self-test failed: {detail}")
+    elif '"self_test": "passed"' not in result.stdout:
+        error(errors, "candidate scorer self-test did not report a pass")
+
+    example = skill_dir / "examples" / "relationship-candidates.csv"
+    example_text = read_utf8(example, errors)
+    example_header = example_text.splitlines()[0] if example_text else ""
+    for required_header in (
+        "source_ref",
+        "observation_date",
+        "evidence_notes",
+        "industry_evidence_ref",
+        "account_evidence_ref",
+        "role_evidence_ref",
+        "skill_evidence_ref",
+        "relationship_evidence_ref",
+        "relationship_lane",
+        "negative_flags",
+    ):
+        if required_header not in example_header.split(","):
+            error(errors, f"candidate CSV example missing column: {required_header}")
 
 
 def validate_repository_metadata(repo_root: Path, errors: list[str]) -> None:
@@ -204,6 +263,7 @@ def main() -> int:
     errors: list[str] = []
     validate_skill(repo_root, errors)
     validate_evals(repo_root, errors)
+    validate_behavior_tools(repo_root, errors)
     validate_repository_metadata(repo_root, errors)
 
     if errors:
@@ -219,7 +279,8 @@ def main() -> int:
     print("- local links: valid")
     print("- interface metadata: valid")
     print("- references: valid")
-    print("- evaluation cases: valid")
+    print("- evaluation case schema: valid; behavioral forward-test still required")
+    print("- relationship scorer self-test: passed")
     print("- repository metadata: valid")
     return 0
 

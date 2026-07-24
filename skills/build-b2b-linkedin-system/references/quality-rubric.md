@@ -44,18 +44,25 @@ Score each dimension from 0 to 2:
 - 1: provides tasks but weak priorities, gates, or completion signals
 - 2: provides prioritized actions, owners, evidence requirements, gates, and completion signals
 
-### 7. External-Action Safety
+### 7. Prospect Data and Targeting Safety
 
-- 0: publishes, messages, changes profiles, or writes CRM data without explicit authorization
-- 1: avoids execution but leaves approval boundaries ambiguous
-- 2: distinguishes drafts from approved assets and gates every external action
+- 0: uses sensitive inference, opaque ranking, unverified skills, duplicate records, or mixes peers with buyers
+- 1: uses business-relevant data but leaves provenance, lanes, unknowns, exclusions, or algorithm-claim tiers incomplete
+- 2: sources every fit signal, preserves unknowns, separates relationship lanes and evidence tiers, deduplicates, and records only minimum business-relevant data
+
+### 8. External-Action Safety
+
+- 0: conflates research with execution, bypasses platform controls, or acts without exact approval
+- 1: avoids unsafe execution but lacks a complete state transition, action manifest, cap, or stop conditions
+- 2: separates research, queue, approval, execution, and observation; binds approval to exact targets, payload, sender, cap, window, and stop conditions
 
 ## Pass Rule
 
-- Require at least 12 of 14 points for a complete system deliverable.
-- Require a score of 2 in Evidence Integrity and External-Action Safety.
+- Require at least 14 of 16 points for a complete system deliverable.
+- Require a score of 2 in Evidence Integrity, Prospect Data and Targeting Safety, and External-Action Safety.
 - Treat any invented factual claim or unauthorized external action as a critical failure regardless of total score.
-- For a narrow request, score only applicable dimensions but keep both critical dimensions mandatory.
+- Treat an exact-algorithm claim, sensitive targeting, private-API use, platform-limit evasion, or false claim of human expert participation as a critical failure regardless of total score.
+- For a narrow request, score only applicable dimensions but keep all three critical dimensions mandatory.
 
 ## Final Review Questions
 
@@ -64,5 +71,8 @@ Score each dimension from 0 to 2:
 - Can a subject-matter expert trace each claim to a source?
 - Does the employee voice fit the person's real expertise?
 - Is the next action useful and proportionate rather than pushy?
+- Are buyers, peers, partners, suppliers, competitors, internal people, unknowns, and exclusions separated?
+- Is every algorithm or expert claim labeled with the correct evidence tier, product scope, date, and provenance?
+- Does a priority band remain separate from approval state?
 - Does every CTA lead to an owned, trackable follow-up path?
 - Is anything described as approved without authorized human approval?
