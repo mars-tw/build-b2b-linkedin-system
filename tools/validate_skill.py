@@ -160,6 +160,41 @@ def validate_evals(repo_root: Path, errors: list[str]) -> None:
                 error(errors, f"evaluation {case_id!r} requires non-empty {field}")
 
 
+def validate_repository_metadata(repo_root: Path, errors: list[str]) -> None:
+    required_files = {
+        "README.md",
+        "LICENSE",
+        "CONTRIBUTING.md",
+        "CITATION.cff",
+        "llms.txt",
+    }
+    for relative_path in sorted(required_files):
+        read_utf8(repo_root / relative_path, errors)
+
+    citation_text = read_utf8(repo_root / "CITATION.cff", errors)
+    citation_tokens = (
+        "cff-version: 1.2.0",
+        'title: "Build B2B LinkedIn System"',
+        "version:",
+        "repository-code:",
+        "license: MIT",
+    )
+    for token in citation_tokens:
+        if token not in citation_text:
+            error(errors, f"CITATION.cff missing {token}")
+
+    llms_text = read_utf8(repo_root / "llms.txt", errors)
+    llms_tokens = (
+        "https://github.com/mars-tw/build-b2b-linkedin-system",
+        "Never invent",
+        "explicit authorization",
+        "python tools/validate_skill.py",
+    )
+    for token in llms_tokens:
+        if token not in llms_text:
+            error(errors, f"llms.txt missing {token}")
+
+
 def main() -> int:
     repo_root = (
         Path(sys.argv[1]).resolve()
@@ -169,6 +204,7 @@ def main() -> int:
     errors: list[str] = []
     validate_skill(repo_root, errors)
     validate_evals(repo_root, errors)
+    validate_repository_metadata(repo_root, errors)
 
     if errors:
         print("Validation failed:")
@@ -184,6 +220,7 @@ def main() -> int:
     print("- interface metadata: valid")
     print("- references: valid")
     print("- evaluation cases: valid")
+    print("- repository metadata: valid")
     return 0
 
 

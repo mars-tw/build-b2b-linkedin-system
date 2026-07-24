@@ -76,6 +76,8 @@ Use $build-b2b-linkedin-system to connect our content plan to an RFQ and CRM han
 
 ```text
 .
+├── CITATION.cff
+├── llms.txt
 ├── skills/build-b2b-linkedin-system/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
@@ -99,9 +101,16 @@ python tools/validate_skill.py
 
 Run this check before opening a pull request.
 
+The repository does not currently advertise a hosted CI check. This portable local validator is the automated quality gate.
+
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. New behavior should include an evaluation case and must preserve evidence integrity and external-action safety.
+
+## Citation and AI Discovery
+
+- [CITATION.cff](CITATION.cff) provides release and repository metadata for citation tools.
+- [llms.txt](llms.txt) provides a concise, machine-readable capability and safety summary.
 
 ## License
 

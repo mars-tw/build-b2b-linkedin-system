@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If this skill helps your work, please cite the repository using this metadata."
+title: "Build B2B LinkedIn System"
+type: software
+version: 1.0.1
+date-released: 2026-07-24
+authors:
+  - family-names: "mars-tw"
+repository-code: "https://github.com/mars-tw/build-b2b-linkedin-system"
+url: "https://github.com/mars-tw/build-b2b-linkedin-system"
+license: MIT
+keywords:
+  - B2B marketing
+  - LinkedIn
+  - Codex skill
+  - business development
+  - evidence-first workflow

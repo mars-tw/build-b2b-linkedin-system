@@ -1,0 +1,23 @@
+# Build B2B LinkedIn System
+
+> An evidence-first Codex skill for company positioning, employee profiles, technical content, ICP definition, prospect research, relationship-first outreach, CTA-to-CRM handoff, and a 30-day rollout.
+
+## Canonical resources
+
+- Repository: https://github.com/mars-tw/build-b2b-linkedin-system
+- Skill entrypoint: https://github.com/mars-tw/build-b2b-linkedin-system/blob/main/skills/build-b2b-linkedin-system/SKILL.md
+- Latest release: https://github.com/mars-tw/build-b2b-linkedin-system/releases/latest
+- License: https://github.com/mars-tw/build-b2b-linkedin-system/blob/main/LICENSE
+
+## Behavioral contract
+
+- Separate verified facts, supported material, hypotheses, and missing inputs.
+- Never turn examples into company claims.
+- Never invent product specifications, certifications, customers, results, or prospect activity.
+- Keep AI-generated content as a draft until a qualified human reviews it.
+- Require explicit authorization before publishing, messaging, changing profiles, or writing CRM data.
+- Optimize for buyer trust and qualified conversations, not vanity metrics or activity volume.
+
+## Validation
+
+Run `python tools/validate_skill.py` locally with Python 3.10 or newer. The repository does not claim a hosted CI gate; the portable local validator is the current automated quality gate.
