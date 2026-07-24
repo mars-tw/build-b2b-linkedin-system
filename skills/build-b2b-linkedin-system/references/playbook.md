@@ -157,7 +157,9 @@ Use a natural participation sequence:
 3. Add a personal point of view
 4. Participate in industry interaction
 
-Every authentic share or interaction can extend brand reach without paid media.
+Authentic shares or interactions may expose content to additional audiences, but
+the effect varies and must be measured. Treat this as a tier-4 hypothesis, not a
+platform fact.
 
 ## 5. Content System
 

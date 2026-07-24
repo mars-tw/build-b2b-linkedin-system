@@ -1,4 +1,4 @@
 interface:
-  display_name: "建立 B2B LinkedIn 成長系統"
-  short_description: "以證據建立公司頁、員工品牌、內容、ICP 與商務開發流程"
-  default_prompt: "Use $build-b2b-linkedin-system to audit our B2B LinkedIn presence and create an evidence-based 30-day improvement plan."
+  display_name: "建立 B2B LinkedIn 關係矩陣"
+  short_description: "以證據建立定位、內容、ICP、買家、同業與夥伴關係矩陣"
+  default_prompt: "Use $build-b2b-linkedin-system to audit our B2B LinkedIn presence, build an evidence-based buyer/peer/partner relationship matrix, and prepare a review-only 30-day plan. Do not take external actions."
